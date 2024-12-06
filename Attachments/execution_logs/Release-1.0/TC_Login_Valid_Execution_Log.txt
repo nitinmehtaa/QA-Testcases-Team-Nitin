@@ -1,0 +1,49 @@
+Test Case Execution Log: Login Page
+-----------------------------------
+
+Execution Date: 2024-12-06
+Executed By: QA Team
+Environment: Staging
+Browser/Device: Chrome 119.0.0.1 / Windows 11
+
+---------------------------------------------------------
+Test Case ID: TC_Login_Valid
+Story ID: 1234
+Feature: Login Functionality
+Priority: High
+Linked Bug IDs: 5678
+Owner: Nitin Mehta
+State: Manual
+Sprint: S-01
+Regression: Yes
+
+Preconditions:
+1. User must have a valid email and password.
+2. Login URL is accessible.
+
+Test Steps:  
+Step 1: Navigate to the login page.  
+Expected Result: Login page is displayed with username and password fields, and a login button.  
+Actual Result: Login page displayed correctly.  
+Status: Passed  
+
+Step 2: Enter valid email and password.  
+Expected Result: Username and password are accepted.  
+Actual Result: Fields accept input correctly.  
+Status: Passed  
+
+Step 3: Click "Login."  
+Expected Result: The user is successfully logged in and redirected to the dashboard/homepage.  
+Actual Result: User successfully logged in and redirected to the dashboard.  
+Status: Passed  
+
+---------------------------------------------------------
+Summary:
+Total Test Cases Executed: 1
+Test Cases Passed: 1
+Test Cases Failed: 0
+Execution Status: PASSED
+
+Comments:
+- Login functionality works as expected with valid credentials.
+- No defects identified in the tested scenario.
