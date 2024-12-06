@@ -9,5 +9,5 @@
 **Result:** ✅ Passed  
 
 **Attachments:**  
-- [Screenshot](./Attachments/screenshots/Release-1.0/Password_Reset_Passed.png)  
-- [Execution Log (PDF)](./Attachments/execution-logs/Release-1.0/Password_Reset_Test_Log.pdf)  
+- [Screenshot](https://github.com/nitinmehtaa/QA-Testcases-Team-Nitin/blob/main/Attachments/screenshots/Release-1.0/TC_password_reset_page.PNG)  
+- [Execution Log (TEXT FILE)](https://github.com/nitinmehtaa/QA-Testcases-Team-Nitin/blob/main/Attachments/execution_logs/Release-1.0/TC_Password_Reset_Execution_Log.txt)  
