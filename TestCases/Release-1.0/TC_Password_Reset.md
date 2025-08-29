@@ -1,26 +1,40 @@
-# Test Case: TC_Password_Reset  
-**Story ID:** 3546  
-**Feature:** Password Reset via Email  
-**Priority:** High  
-**Linked Bug IDs:** 5666  
-**Owner:** Nitin Mehta  
-**State:** Manual  
-**Sprint:** S-01  
+# Test Case: TC_Password_Reset
+**Story ID:** 1237
+**Feature:** User Authentication
+**Priority:** High
+**Linked Bug IDs:** 5681
+**Owner:** Nitin Mehta
+**State:** Manual
+**Sprint:** S-01
 **Regression:** Yes
 
 **Preconditions:**
-1. The user must have a registered email address.
-2. Password reset functionality is accessible.
+1. Valid user account exists in the system
+2. Password reset functionality is enabled
+3. Email service is configured and working
+4. User has access to registered email account
 
-**Test Steps:**  
-1. Navigate to the login page.
-2. Click on the "Forgot Password" link.
-3. Enter a valid registered email address.
-4. Click on the "Reset Password" button.
-5. Check the email inbox for a password reset link.
-6. Click on the reset link provided in the email.
-7. Enter a new valid password and confirm the password.
-8. Click "Submit." 
+**Test Steps:**
+1. Navigate to login page
+2. Click on "Forgot Password" link
+3. Enter registered email address
+4. Submit password reset request
+5. Check email for reset link
+6. Click on password reset link
+7. Enter new password meeting requirements:
+   a. Minimum 8 characters
+   b. At least one uppercase letter
+   c. At least one number
+   d. At least one special character
+8. Confirm new password
+9. Submit password change
+10. Attempt to login with new password
 
-**Expected Result:**  
-The user receives a password reset email. Upon clicking the reset link, they can successfully reset their password and are redirected to a confirmation page.
+**Expected Results:**
+1. Password reset email is sent within 5 minutes
+2. Reset link in email is valid and working
+3. Password requirements are clearly displayed
+4. System accepts valid new password
+5. Confirmation message shown after successful reset
+6. Old password no longer works
+7. Login with new password is successful
