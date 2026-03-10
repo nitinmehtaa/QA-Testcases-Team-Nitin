@@ -1,11 +1,6 @@
 # Test Case: TC_User_Login
-**Story ID:** 1239
-**Feature:** User Authentication
-**Priority:** High
-**Owner:** Nitin Mehta
-**State:** Manual
-**Sprint:** S-01
-**Regression:** Yes
+
+**Story ID:** 1239 **Feature:** User Authentication **Priority:** High **Owner:** Nitin Mehta **State:** Manual **Sprint:** S-01 **Regression:** Yes
 
 **Preconditions:**
 1. User account exists in the system
