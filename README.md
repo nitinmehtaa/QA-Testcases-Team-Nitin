@@ -1,96 +1,155 @@
 # QA Test Cases Repository
 
 ## Overview
-This repository contains a collection of test cases for QA validation, grouped by release versions and common test scenarios. The test cases are organized to facilitate easy access, execution tracking, and result documentation.
 
-## Key Test Cases
-- **API Authentication Token Validation**: Tests API authentication mechanism to ensure only valid tokens grant access.
-- **API Response Time**: Measures and validates API response times meet performance requirements.
-- **Logging**: Verifies that application events and transactions are properly logged for audit and debugging purposes.
-- **Database Connection**: Tests database connectivity, connection pooling, and error handling for database operations.
+This repository contains a comprehensive collection of test cases for QA validation, organised by release versions and common test categories. The test cases are structured to facilitate easy access, execution tracking, and result documentation.
 
-## Folder Structure
-The repository follows a clean folder hierarchy to ensure all testing assets are organized for easy navigation and access. Below is the structure of the repository:
+Maintained by **Team Nitin** | Framework: **Selenium / Playwright** | Language: **Java**
 
-```plaintext
-QA-Testcases-Team-Nitin
-│
+---
+
+## Repository Structure
+
+```
+QA-Testcases-Team-Nitin/
+|
 ├── README.md
-│
-├── TestCases
-│   ├── Common
-│   │   ├── TC_API_Authentication.md
-│   │   ├── TC_API_Response_Time.md
-│   │   ├── TC_Database_Connection.md
-│   │   └── TC_Logging.md
-│   │
-│   └── Release-1.0
-│       ├── TC_Login_Invalid.md
-│       ├── TC_Login_Valid.md
-│       └── TC_Password_Reset.md
-│
-├── Attachments
-│   ├── execution_logs
-│   │   └── Release-1.0
-│   │       ├── TC_Login_Valid_Execution_Log
-│   │       └── TC_Password_Reset_Execution_Log
-│   │
-│   └── screenshots
-│       └── Release-1.0
-│           ├── TC_Login_Valid_Screenshot.png
-│           └── TC_Password_Reset_Screenshot.png
-│
-└── ExecutionResults
-    └── Release-1.0
-        ├── TC_Login_Invalid_Result.md
-        ├── TC_Login_Valid_Result.md
-        └── TC_Password_Reset_Result.md
+|
+├── TestCases/
+|   ├── Common/                          # Cross-release, reusable test cases
+|   |   ├── Authentication/              # Login, Registration, 2FA, Password, Email Verification
+|   |   |   ├── TC_User_Login.md
+|   |   |   ├── TC_User_Registration_Positive_Negative.md
+|   |   |   ├── TC_Two_Factor_Authentication.md
+|   |   |   ├── TC_Password_Complexity_Expiry.md
+|   |   |   ├── TC_Email_Verification_on_Registration.md
+|   |   |   └── README.md
+|   |   |
+|   |   ├── Session_Management/          # Session timeout, Logout, Concurrent sessions
+|   |   |   ├── TC_Session_Timeout_Auto_Logout.md
+|   |   |   ├── TC_Logout_Explicit.md
+|   |   |   ├── TC_Concurrent_Session_Handling.md
+|   |   |   └── README.md
+|   |   |
+|   |   ├── Security/                    # SQL Injection, XSS, CSRF, Authorization, RBAC
+|   |   |   ├── TC_SQL_Injection.md
+|   |   |   ├── TC_XSS_Cross_Site_Scripting.md
+|   |   |   ├── TC_CSRF_Protection.md
+|   |   |   ├── TC_Authorization_Bypass.md
+|   |   |   ├── TC_Role_Based_Access_Control.md
+|   |   |   └── README.md
+|   |   |
+|   |   ├── API/                         # API auth tokens, CRUD operations, HTTP error codes
+|   |   |   ├── TC_API_Authentication_Token.md
+|   |   |   ├── TC_API_CRUD_Operations.md
+|   |   |   ├── TC_API_HTTP_Error_Codes.md
+|   |   |   └── README.md
+|   |   |
+|   |   └── General/                     # General UI / functional test cases
+|   |       ├── TC_Search_Functionality.md
+|   |       └── README.md
+|   |
+|   └── Release-1.0/                     # Release-specific test cases
+|       ├── TC_Login_Valid.md
+|       ├── TC_Login_Invalid.md
+|       ├── TC_Password_Reset.md
+|       ├── TC_Account_Lockout.md
+|       └── TC_User_Profile_Update.md
+|
+├── Attachments/
+|   ├── execution_logs/
+|   |   └── Release-1.0/
+|   └── screenshots/
+|       └── Release-1.0/
+|
+└── ExecutionResults/
+    └── Release-1.0/
 ```
 
-### Folder Descriptions
+---
 
-- **TestCases**: This folder contains the test case scripts and definitions. Each test case is saved in its own file under either the `Common` folder (for test cases applicable across releases) or versioned folder (e.g., `Release-1.0`), and the test cases can be referenced and run by the test execution framework.
+## Test Case Categories
 
-- **Attachments**: Contains supporting files for test execution:
-  - `execution_logs`: Contains logs for each test case execution.
-  - `screenshots`: Stores screenshots captured for validation purposes during the test case execution.
+### Common Test Cases (Cross-Release)
 
-- **ExecutionResults**: This folder contains the results of the executed test cases. It holds the execution details and status for each test case after it has been run.
+| Category | # TCs | Description |
+|---|---|---|
+| **Authentication** | 5 | User login, registration, 2FA, password policy, email verification |
+| **Session Management** | 3 | Session timeout, explicit logout, concurrent session handling |
+| **Security** | 5 | SQL injection, XSS, CSRF protection, authorization bypass, RBAC |
+| **API** | 3 | API token auth, CRUD operations, HTTP error code validation |
+| **General** | 1 | Search functionality |
 
-- **README**: The repository's documentation file, which provides an overview, usage instructions, and other relevant details.
+### Release-1.0 Test Cases
+
+| File | Description |
+|---|---|
+| TC_Login_Valid.md | Valid login with correct credentials |
+| TC_Login_Invalid.md | Invalid login scenarios (wrong password, locked user, etc.) |
+| TC_Password_Reset.md | Password reset flow via email |
+| TC_Account_Lockout.md | Account lockout after repeated failed login attempts |
+| TC_User_Profile_Update.md | User profile update and save functionality |
+
+---
 
 ## Test Case Structure
-Each test case is represented by a unique file in the **TestCases** folder and is linked to the following attributes:
 
-- **Test Case ID**: A unique identifier for the test case (e.g., `TC_Login_Valid`).
-- **Story ID**: The user story that the test case corresponds to, usually tied to the project's requirements.
-- **Feature**: The functionality or feature that the test case is validating.
-- **Priority**: The importance of the test case (e.g., High, Medium, Low).
-- **Owner**: The person responsible for the test case.
-- **Linked Bugs**: Any bugs or issues associated with the test case (if applicable).
-- **State**: Indicates whether the test case is automated or manual.
-- **Sprint**: The sprint in which the test case is planned to be executed.
-- **Regression**: Whether the test case is part of the regression suite.
-- **Result**: The final result of the test case after execution (e.g., Pass, Fail).
+Each test case file includes the following metadata:
+
+| Field | Description |
+|---|---|
+| **Test Case ID** | Unique identifier (e.g., `TC_User_Login`) |
+| **Story ID** | Linked user story / requirement |
+| **Feature** | Functionality being tested |
+| **Priority** | High / Medium / Low |
+| **Owner** | Person responsible for the test case |
+| **State** | Manual / Automated |
+| **Sprint** | Sprint in which TC is planned |
+| **Regression** | Yes / No — whether it is part of regression suite |
+| **Preconditions** | Setup required before executing the test |
+| **Test Steps** | Step-by-step execution instructions |
+| **Expected Results** | Expected outcome for each scenario |
+| **Linked Bugs** | Any associated bugs or issues |
+
+---
+
+## Folder Descriptions
+
+- **TestCases/Common/**: Reusable test cases applicable across all releases, organised into category subfolders (`Authentication`, `Session_Management`, `Security`, `API`, `General`).
+- **TestCases/Release-1.0/**: Release-specific test cases tied to the first production release.
+- **Attachments/execution_logs/**: Execution log files for each test run, organised by release.
+- **Attachments/screenshots/**: Screenshots captured during test execution for evidence, organised by release.
+- **ExecutionResults/**: Test execution result summaries (Pass/Fail status, remarks) organised by release.
+
+---
 
 ## How to Contribute
-1. **Fork the Repository**: Fork this repository to your own GitHub account.
-2. **Add New Test Cases**: Create new test case files or modify existing ones under the appropriate folder (e.g., `TestCases/Release-1.0`).
-3. **Execute Test Cases**: Run the tests and record the results (execution logs and screenshots) in the corresponding subfolders under `Attachments`.
-4. **Submit Pull Requests**: Once you've completed your work, submit a pull request for review and integration into the main repository.
+
+1. **Fork the Repository**: Fork this repo to your GitHub account.
+2. **Create a branch**: Use naming convention `feature/<description>` or `fix/<description>`.
+3. **Add / Update Test Cases**: Place new TCs in the appropriate category subfolder under `TestCases/Common/` or the relevant release folder.
+4. **Update Attachments**: After execution, add logs to `Attachments/execution_logs/` and screenshots to `Attachments/screenshots/`.
+5. **Submit a Pull Request**: Raise a PR for review and integration into `main`.
+
+---
 
 ## Getting Started
 
 ### Prerequisites
-- Ensure you have **Git** installed.
-- Clone the repository to your local machine using the following command:
+
+- Git installed on your local machine
+- Clone the repository:
   ```bash
   git clone https://github.com/nitinmehtaa/QA-Testcases-Team-Nitin.git
   ```
-- Set up your test execution environment based on the testing tools and frameworks used by your team.
+- Set up your test execution environment (Selenium / Playwright / JUnit / TestNG as applicable).
 
-### Running the Tests
-The execution of test cases depends on the tools and frameworks being used. Please refer to the specific instructions provided for running tests in your team's testing environment (e.g., Selenium, Appium, JUnit, TestNG).
+### Running Tests
+
+Test execution depends on your team's framework setup. Refer to the relevant test runner configuration in your project. Execution results should be saved under `ExecutionResults/` and logs/screenshots under `Attachments/`.
+
+---
 
 ## License
-This project is maintained by Team Nitin for QA purposes.
+
+This project is maintained by **Team Nitin** for internal QA purposes.
